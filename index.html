@@ -697,44 +697,7 @@
       updateTotals();
     }
 
-    function submitForm() {
-  const items = [];
-  document.querySelectorAll("#orderBody tr").forEach((row) => {
-    items.push({
-      material: row.querySelector(".material")?.value || "",
-      product: row.querySelector(".product")?.value || "",
-      thickness: row.querySelector(".thickness")?.value || "",
-      size: row.querySelector(".Size")?.value || "",
-      boards: row.querySelector(".boards")?.value || "0",
-      weight: row.querySelector(".weight")?.value || "0",
-      totalWeight: row.querySelector(".totalWeight")?.textContent || "0"
-    });
-  });
-
-  const payload = {
-    billing: document.getElementById("billing").value,
-    shipping: document.getElementById("shipping").value,
-    po: document.getElementById("po").value,
-    orderDate: document.getElementById("orderDate").value,
-    mobile: document.getElementById("mobile").value,
-    contact: document.getElementById("contact").value,
-    executive: document.getElementById("executive").value,
-    remarks: document.getElementById("remarks").value,
-    totalBoards: document.getElementById("boardsTotal").textContent,
-    totalWeight: document.getElementById("overallTotalWeight").textContent,
-    items: items
-  };
-
-  fetch("https://script.google.com/macros/s/AKfycbyjyCmGhn7VfHQkoum2IkgZNIo15DQucU98Ohz9QrnD0Ljk_WG7G7Dv-ddMpsCMyd_Xlw/exec", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  })
-    .then(res => res.text())
-    .then(msg => alert(msg))
-    .catch(err => alert("❌ Error: " + err.message));
-}
-
+    function submitForm() { alert('Form Submitted!'); }
     function editForm() { alert('Edit Mode!'); }
 
     document.getElementById('sameAddress').addEventListener('change', function () {
